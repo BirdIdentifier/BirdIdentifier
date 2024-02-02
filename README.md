@@ -9,7 +9,8 @@ Sommaire
  2. [Présentation du projet](#presentation)
  3. [Notre jeu de données](#dataset)
  4. [Description des librairies](#libraries)
- 5. [Auteurs](#auteurs)
+ 5. [Avancement](#avancement)
+ 6. [Auteurs](#auteurs)
 
 *******
 
@@ -107,6 +108,42 @@ Toutes les images sont au **format jpg** et ont une **taille de 224 x 224 x 3 pi
 ## **Présentation** 🎉
 
 BirdIdentifier : Votre identificateur d'oiseaux à partir d'une photo !  
+
+*******
+
+<div id='avancement'/>   
+
+## Avancement
+
+### Analyse du système :
+
+Pour commencer, nous avons d'abord décidé d'analyser notre système et le jeu de données que nous avons choisi.      
+
+Nous avons donc eu pour chaque donnée : un **X** (la photo de l'oiseau) et un **Y** (le nom de son espèce).  
+Pour traiter ces derniers, nous avons pour la photo (X) : redimensionner celle-ci puis normaliser les pixels. Ensuite, pour le nom de l'espèce (Y), nous avons fait le choix de lui attribuer un entier.  
+Un autre détail important et que nous avons placer ceux deux ensembles de valeurs dans des tableaux de tailles identiques avec les valeurs correspondantes à la même position.  
+
+### Nos modèles :
+
+A présent, nous avons dû passer au choix de notre modèle, ou plutôt de nos modèles dans notre cas. En effet, nous avons fait le choix de tester **2 modèles différents** :  
+- Un **arbre de décision** avec deux espèces
+- Un **réseau de neuronnes (CNN)** avec toutes les espèces 
+
+Le premier modèle aura pour but de nous familiariser avec l'environnement de travail et les différentes librairies vu ci-dessus avec l'aide d'un cas simple.  
+Le second sera une réelle implémentation du modèle en utilisant l'intégralité et l'ensemble des possibilités de notre jeu de données.  
+
+### Premier modèle - Arbre de décision :
+
+Nous avons donc débuté à l'aide d'un **cas binaire** et donc les deux espèces suivantes : *Masked Booby & Crested Coua*.
+
+> *Pseudo code d'entraînement du modèle :*  
+>- Charger les données (photos des oiseaux)  
+>- Placer les chemins des photos des oiseaux au sein d'un tableau
+>- Récupérer les images de tests et les traiter :
+>    - Redimensionnement
+>    - Normalisation
+>- Entraîner le modèle
+>- Évaluer les performances sur l'ensemble de test
 
 *******
 
