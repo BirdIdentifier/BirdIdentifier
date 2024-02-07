@@ -99,7 +99,71 @@ Toutes les images sont au **format jpg** et ont une **taille de 224 x 224 x 3 pi
 
 *Évaluation des Modèles* : Des fonctions d'évaluation de modèles telles que la validation croisée, les courbes ROC, et les métriques de performance facilitent l'évaluation des performances des modèles.
 
-[Documentation Officielle](https://scikit-learn.org/stable/)
+[Documentation Officielle](https://scikit-learn.org/stable/)  
+
+### **tensorflow**  
+
+> **TensorFlow** est une bibliothèque open-source développée par Google, conçue pour effectuer des calculs numériques et des tâches d'apprentissage automatique (machine learning) à grande échelle. C'est l'une des bibliothèques les plus populaires pour la mise en œuvre de réseaux de neurones et d'autres modèles d'apprentissage profond.
+
+***Fonctionnalités*** :   
+
+*Construction de Graphiques de Calcul* : TensorFlow utilise un modèle de programmation basé sur des graphiques de calcul, où les opérations sont représentées sous forme de nœuds dans un graphe, permettant une exécution efficace sur diverses plateformes matérielles.  
+
+*Apprentissage Profond* : La bibliothèque offre des outils complets pour la construction, l'entraînement et le déploiement de réseaux de neurones profonds (deep learning), y compris des couches pré-définies, des optimiseurs, des fonctions d'activation, etc.
+
+*Traitement des Données* : TensorFlow propose des fonctionnalités pour le chargement, la préparation et le traitement des données, facilitant ainsi l'intégration des données dans le flux de travail de l'apprentissage automatique.
+
+*Déploiement sur Différentes Plateformes* : La bibliothèque prend en charge le déploiement de modèles sur une variété de plateformes, notamment les ordinateurs de bureau, les serveurs, les appareils mobiles et même les périphériques IoT. 
+
+[Documentation Officielle](https://www.tensorflow.org/learn?hl=fr)  
+
+### **keras**  
+
+> **Keras** est une bibliothèque open-source écrite en Python, conçue pour simplifier le développement et l'expérimentation de modèles d'apprentissage automatique (machine learning) et d'apprentissage profond (deep learning). Elle offre une interface simple et intuitive, tout en étant hautement personnalisable et extensible.
+
+***Fonctionnalités*** :   
+
+*Facilité d'Utilisation* : Keras propose une API conviviale, permettant aux utilisateurs de créer et de former des modèles d'apprentissage automatique avec un code clair et concis.
+
+*Modularité* : La bibliothèque est basée sur un modèle de programmation modulaire, permettant de construire des architectures de réseaux de neurones en assemblant des couches (layers) de manière séquentielle ou fonctionnelle.
+
+*Compatibilité Multi-plateformes* : Keras est compatible avec différentes bibliothèques de calcul numérique telles que TensorFlow, Theano et Microsoft Cognitive Toolkit (CNTK), offrant ainsi une portabilité des modèles sur diverses plateformes matérielles.
+
+*Large Gamme de Couches* : Elle propose une large gamme de couches pré-définies pour la construction de réseaux de neurones, y compris des couches de convolution, des couches récurrentes, des couches d'activation, des couches de regroupement, etc.
+
+[Documentation Officielle](https://keras.io/)  
+
+### **numpy**  
+
+> **NumPy** est une bibliothèque open-source en Python, spécialisée dans le calcul numérique et la manipulation de tableaux multidimensionnels. Elle fournit des fonctions puissantes pour effectuer des opérations mathématiques, statistiques et de manipulation de données, ce qui en fait un outil essentiel pour les scientifiques et les ingénieurs.
+
+***Fonctionnalités*** :   
+
+*Tableaux Numériques* : NumPy introduit un nouveau type de données appelé ndarray, qui est un tableau multidimensionnel homogène. Cela permet de stocker et de manipuler efficacement des données numériques en dimensions multiples.  
+
+*Opérations Mathématiques* : La bibliothèque propose une large gamme d'opérations mathématiques, y compris les fonctions trigonométriques, les opérations d'algèbre linéaire, les fonctions de transformation de Fourier, etc.
+
+*Manipulation de Données* : NumPy offre des outils puissants pour la manipulation de données, tels que le tri, l'indexation, le découpage, la concaténation et la répétition de tableaux, ainsi que des fonctions pour la manipulation des formes et des types de données.  
+
+*Intégration avec d'Autres Bibliothèques* : NumPy est largement utilisé comme base pour de nombreuses autres bibliothèques Python, notamment Pandas, Matplotlib et SciPy, en raison de sa compatibilité et de sa performance.
+
+[Documentation Officielle](https://numpy.org/)
+
+### **pandas**  
+
+> **Pandas** est une bibliothèque open-source en Python spécialisée dans l'analyse et la manipulation de données. Elle offre des structures de données puissantes et flexibles, ainsi que des outils pour effectuer des opérations de nettoyage, de transformation et d'analyse de données, ce qui en fait un outil indispensable pour les scientifiques des données et les analystes.
+
+***Fonctionnalités*** :   
+
+*Structures de Données* : Pandas introduit deux principales structures de données : les Series, qui sont des tableaux unidimensionnels étiquetés, et les DataFrame, qui sont des tableaux bidimensionnels étiquetés, permettant ainsi de stocker et de manipuler efficacement les données tabulaires.
+
+*Manipulation de Données* : La bibliothèque offre une variété de fonctions pour la manipulation de données, y compris le filtrage, le tri, le regroupement, la fusion, la jointure, la pivotage, la transposition, et bien d'autres encore.
+
+*Gestion des Données Manquantes* : Pandas propose des outils pour gérer les données manquantes, notamment en les identifiant, en les supprimant, en les remplaçant ou en les remplissant avec des valeurs appropriées.
+
+*Analyse de Données* : Elle offre des fonctionnalités pour effectuer des opérations statistiques, telles que le calcul de la moyenne, de la médiane, de l'écart-type, de la corrélation, ainsi que des outils pour la visualisation des données.
+
+[Documentation Officielle](https://pandas.pydata.org/)
 
 *******
 
@@ -144,6 +208,12 @@ Nous avons donc débuté à l'aide d'un **cas binaire** et donc les deux espèce
 >    - Normalisation
 >- Entraîner le modèle
 >- Évaluer les performances sur l'ensemble de test
+
+### Deuxième modèle - Réseau de neuronnes CNN :
+
+Nous avons ensuite poursuivi en s'intéressant à l'ensemble des espèces proposées avec un modèle CNN.  
+
+> *Pseudo code d'entraînement du modèle :*  
 
 *******
 
