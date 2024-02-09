@@ -8,8 +8,8 @@ Sommaire
  1. [Accessibilité](#acces)
  2. [Présentation du projet](#presentation)
  3. [Notre jeu de données](#dataset)
- 4. [Description des librairies](#libraries)
- 5. [Avancement](#avancement)
+ 4. [Avancement](#avancement)
+ 5. [Description des librairies](#libraries)
  6. [Auteurs](#auteurs)
 
 *******
@@ -119,6 +119,45 @@ Cette partie vise à évaluer la qualité de compression JPEG des images, en uti
 *Échantillonnage Aléatoire :*  
     La fonction `random_sample` est utilisée pour sélectionner aléatoirement un échantillon d'image à partir d'un répertoire spécifié.
     Cela permet de tester l'analyse ELA sur différentes images de manière aléatoire.
+
+**Exemple d'utilisation :**  
+
+![](./images_readme/masked_booby_ela_vizualisation.png)
+
+---
+
+### Pourquoi 2 modèles ?
+
+Comme vous l'avez remarqué nous avons utilisé deux modèles différents (l'arbre de décision et le réseau de neuronnes).  
+
+La première raison était que l'on souhaitait tester premièrement un modèle plus simple que l'on connaissait avec un nombre de classes limité (2). L'**arbre de décision** a donc fait totalement sens dans cette situation.  Ensuite, nous voulions un modèle plus actuel et complexe capable de gérer au mieux les centaines d'espèces disponibles dans notre base. Nous avons alors été attiré par **CNN** que nous avons sélectionné.  
+
+Néanmoins, après avoir travaillé sur ceux-ci, nous tirons plusieurs avantages et inconvénients de chacun d'entre eux :  
+
+**Arbre de décision** :  
+- **Avantages** :  
+    - Les arbres de décision sont simples à comprendre, interpréter et représenter même pour des non-experts.  
+    - Les arbres de décision peuvent modéliser des relations non linéaires entre les caractéristiques et la variable cible.
+    - Les arbres de décision ne nécessitent pas de normalisation des caractéristiques ou d'autres prétraitements complexes.
+
+- **Inconvénients** :  
+    -  Les arbres de décision sont sensibles aux variations dans les données d'entraînement, ce qui peut entraîner un surajustement si l'arbre n'est pas correctement régularisé.
+    - Les arbres de décision ont tendance à créer des modèles trop complexes qui s'adaptent trop précisément aux données d'entraînement, ce qui peut entraîner une mauvaise généralisation sur de nouvelles données.
+    - Les arbres de décision peuvent avoir du mal à capturer des relations complexes entre les caractéristiques et la variable cible, en particulier dans des ensembles de données de grande dimension.
+
+**Réseau de neuronnes - CNN** :  
+- **Avantages** :  
+    - Les CNN peuvent apprendre des caractéristiques hiérarchiques à partir des données, ce qui leur permet de capturer des motifs complexes dans les images.
+    - Les CNN sont très performants pour la vision par ordinateur, avec des performances souvent supérieures à celles des autres méthodes lorsqu'ils sont correctement entraînés.
+    - Les CNN sont capables de s'adapter à une grande variété de données d'entrée, y compris des images de tailles différentes, et peuvent être utilisés pour un large éventail de tâches de classification et de détection d'objets.
+    - Les CNN intègrent souvent des techniques de régularisation telles que le dropout et la normalisation par lots, ce qui réduit le risque de surajustement.
+
+- **Inconvénients** :  
+    - Les CNN nécessitent généralement de grandes quantités de données d'entraînement pour obtenir de bonnes performances, ce qui peut être un défi dans certains domaines.  
+    - L'entraînement d'un CNN peut être intensif en termes de calcul et de temps, en particulier pour les architectures profondes et les ensembles de données volumineux.
+    - Les modèles CNN sont souvent considérés comme des boîtes noires en raison de leur complexité, ce qui rend difficile l'interprétation de la manière dont les prédictions sont faites.    
+
+---
 
 *******
 
