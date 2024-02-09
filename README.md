@@ -37,6 +37,91 @@ Toutes les images sont au **format jpg** et ont une **taille de 224 x 224 x 3 pi
 
 *******
 
+<div id='presentation'/>
+
+## **Présentation** 🎉
+
+BirdIdentifier : Votre identificateur d'oiseaux à partir d'une photo !  
+
+*******
+
+<div id='avancement'/>   
+
+## Avancement
+
+### Analyse du système :
+
+Pour commencer, nous avons d'abord décidé d'analyser notre système et le jeu de données que nous avons choisi.      
+
+Nous avons donc eu pour chaque donnée : un **X** (la photo de l'oiseau) et un **Y** (le nom de son espèce).  
+Pour traiter ces derniers, nous avons pour la photo (X) : redimensionner celle-ci puis normaliser les pixels. Ensuite, pour le nom de l'espèce (Y), nous avons fait le choix de lui attribuer un entier.  
+Un autre détail important et que nous avons placer ceux deux ensembles de valeurs dans des tableaux de tailles identiques avec les valeurs correspondantes à la même position.  
+
+---
+
+### Nos modèles :
+
+A présent, nous avons dû passer au choix de notre modèle, ou plutôt de nos modèles dans notre cas. En effet, nous avons fait le choix de tester **2 modèles différents** :  
+- Un **arbre de décision** avec deux espèces
+- Un **réseau de neuronnes (CNN)** avec toutes les espèces 
+
+Le premier modèle aura pour but de nous familiariser avec l'environnement de travail et les différentes librairies vu ci-dessus avec l'aide d'un cas simple.  
+Le second sera une réelle implémentation du modèle en utilisant l'intégralité et l'ensemble des possibilités de notre jeu de données.  
+
+---
+
+### Premier modèle - Arbre de décision :
+
+Nous avons donc débuté à l'aide d'un **cas binaire** et donc les deux espèces suivantes : *Masked Booby & Crested Coua*.
+
+> *Processus d'entraînement du modèle :*  
+>- Charger les données (photos des oiseaux)  
+>- Placer les chemins des photos des oiseaux au sein d'un tableau
+>- Récupérer les images de tests et les traiter :
+>    - Redimensionnement
+>    - Normalisation
+>- Entraîner le modèle
+>- Évaluer les performances sur l'ensemble de test
+
+### Deuxième modèle - Réseau de neuronnes CNN :
+
+Nous avons ensuite poursuivi en s'intéressant à l'ensemble des espèces proposées avec un modèle CNN.  
+
+> *Processus d'entraînement du modèle :*  
+>- **Préparation des données** : Les données ont été séparées en ensembles d'entraînement et de test. Les chemins des images ont été récupérés à partir d'un DataFrame.
+>- **Data Augmentation** : Les images ont été soumises à des transformations aléatoires telles que le redimensionnement, le retournement horizontal, la rotation, le zoom et le contraste pour augmenter la variabilité des données.
+>- **Construction du Modèle** : Un modèle de classification a été construit en utilisant EfficientNetB0 pré-entraîné comme base. Une couche de classification personnalisée a été ajoutée au modèle pour s'adapter à nos classes d'oiseaux.
+>- **Compilation du Modèle** : Le modèle a été compilé avec l'optimiseur Adam et la fonction de perte de catégorisation croisée.
+>- **Entraînement du Modèle** : Le modèle a été entraîné sur les données d'entraînement et évalué sur les données de validation. Des callbacks ont été utilisés pour surveiller et enregistrer le modèle pendant l'entraînement.
+>- **Fin de l'entraînement** : Une fois l'entraînement terminé, l'historique de l'entraînement a été retourné, contenant les métriques de perte et de précision sur les ensembles d'entraînement et de validation à chaque époque.
+
+---
+
+### Traitement et Visualisation de l'image
+
+L'une des techniques que nous avons découvert correspond à la visualisation d'image en utilisant des techniques d'analyse d'erreur.  
+
+Cette partie vise à évaluer la qualité de compression JPEG des images, en utilisant des techniques d'analyse d'erreur de niveau (ELA) et de visualisation. 
+
+> Une image **ELA** (Error Level Analysis) est une représentation visuelle qui met en évidence les différences de niveaux de compression dans une image JPEG. L'ELA est obtenue en soustrayant l'image d'origine de l'image compressée à un niveau de qualité spécifié, puis en ajustant la luminosité de cette différence pour la rendre plus perceptible.  
+
+**Fonctionnalités principales :**
+
+*Analyse d'Erreur de Niveau (ELA) :*  
+    Les fonctions `compute_ela_cv` et `convert_to_ela_image` sont utilisées pour calculer l'image ELA à partir d'une image donnée.  
+    L'ELA est obtenue en soustrayant l'image d'origine de l'image compressée à différents niveaux de qualité.  
+    Les régions avec des niveaux d'erreur élevés indiquent des zones potentielles de manipulation ou de falsification dans l'image.
+
+*Visualisation des Résultats :*  
+    Le code fournit des scripts pour visualiser les résultats de l'analyse ELA pour une série d'images.  
+    Les niveaux de qualité de compression JPEG sont ajustés progressivement pour chaque image afin d'évaluer l'impact sur l'ELA.
+
+*Échantillonnage Aléatoire :*  
+    La fonction `random_sample` est utilisée pour sélectionner aléatoirement un échantillon d'image à partir d'un répertoire spécifié.
+    Cela permet de tester l'analyse ELA sur différentes images de manière aléatoire.
+
+*******
+
 <div id='libraries'/>   
 
 ## Librairies utilisées 📚  
@@ -164,56 +249,6 @@ Toutes les images sont au **format jpg** et ont une **taille de 224 x 224 x 3 pi
 *Analyse de Données* : Elle offre des fonctionnalités pour effectuer des opérations statistiques, telles que le calcul de la moyenne, de la médiane, de l'écart-type, de la corrélation, ainsi que des outils pour la visualisation des données.
 
 [Documentation Officielle](https://pandas.pydata.org/)
-
-*******
-
-<div id='presentation'/>
-
-## **Présentation** 🎉
-
-BirdIdentifier : Votre identificateur d'oiseaux à partir d'une photo !  
-
-*******
-
-<div id='avancement'/>   
-
-## Avancement
-
-### Analyse du système :
-
-Pour commencer, nous avons d'abord décidé d'analyser notre système et le jeu de données que nous avons choisi.      
-
-Nous avons donc eu pour chaque donnée : un **X** (la photo de l'oiseau) et un **Y** (le nom de son espèce).  
-Pour traiter ces derniers, nous avons pour la photo (X) : redimensionner celle-ci puis normaliser les pixels. Ensuite, pour le nom de l'espèce (Y), nous avons fait le choix de lui attribuer un entier.  
-Un autre détail important et que nous avons placer ceux deux ensembles de valeurs dans des tableaux de tailles identiques avec les valeurs correspondantes à la même position.  
-
-### Nos modèles :
-
-A présent, nous avons dû passer au choix de notre modèle, ou plutôt de nos modèles dans notre cas. En effet, nous avons fait le choix de tester **2 modèles différents** :  
-- Un **arbre de décision** avec deux espèces
-- Un **réseau de neuronnes (CNN)** avec toutes les espèces 
-
-Le premier modèle aura pour but de nous familiariser avec l'environnement de travail et les différentes librairies vu ci-dessus avec l'aide d'un cas simple.  
-Le second sera une réelle implémentation du modèle en utilisant l'intégralité et l'ensemble des possibilités de notre jeu de données.  
-
-### Premier modèle - Arbre de décision :
-
-Nous avons donc débuté à l'aide d'un **cas binaire** et donc les deux espèces suivantes : *Masked Booby & Crested Coua*.
-
-> *Pseudo code d'entraînement du modèle :*  
->- Charger les données (photos des oiseaux)  
->- Placer les chemins des photos des oiseaux au sein d'un tableau
->- Récupérer les images de tests et les traiter :
->    - Redimensionnement
->    - Normalisation
->- Entraîner le modèle
->- Évaluer les performances sur l'ensemble de test
-
-### Deuxième modèle - Réseau de neuronnes CNN :
-
-Nous avons ensuite poursuivi en s'intéressant à l'ensemble des espèces proposées avec un modèle CNN.  
-
-> *Pseudo code d'entraînement du modèle :*  
 
 *******
 
