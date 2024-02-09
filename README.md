@@ -1,4 +1,5 @@
 # BirdIdentifier 🐦
+* :warning: ADD RELATIVE PATH INSTRUCTION
 
 ## Bonjour et bienvenue sur le dépôt du projet BirdIdentifier ! 👋
 
