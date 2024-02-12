@@ -9,8 +9,9 @@ Sommaire
  2. [Présentation du projet](#presentation)
  3. [Notre jeu de données](#dataset)
  4. [Avancement](#avancement)
- 5. [Description des librairies](#libraries)
- 6. [Auteurs](#auteurs)
+ 5. [Visualisation](#visualisation)
+ 6. [Description des librairies](#libraries)
+ 7. [Auteurs](#auteurs)
 
 *******
 
@@ -188,6 +189,41 @@ Néanmoins, après avoir travaillé sur ceux-ci, nous tirons plusieurs avantages
     - Les modèles CNN sont souvent considérés comme des boîtes noires en raison de leur complexité, ce qui rend difficile l'interprétation de la manière dont les prédictions sont faites.    
 
 ---
+
+*******
+
+<div id='visualisation'/>
+
+## **Visualisation des résultats** 
+
+Afin d'évaluer et d'optimiser les modèles d'IA, deux éléments sont cruciaux : la **matrice de confusion** et la **courbe d'accuracy**. Nous avons pu mettre en place ces deux types de schéma pour nos deux types de modèle (Arbre de décision & Réseau de neurones).  
+
+### Matrice de confusion
+
+La **matrice de confusion** est un outil essentiel dans l'évaluation des performances d'un modèle d'apprentissage automatique. Elle permet de visualiser la performance d'un algorithme de classification en comparant les prédictions du modèle aux vraies valeurs cibles. La matrice de confusion présente les prédictions du modèle dans un tableau à deux dimensions où les lignes représentent les classes réelles et les colonnes représentent les classes prédites. Grâce à cette visualisation, on peut identifier les types d'erreurs que le modèle commet (comme les faux positifs et les faux négatifs) et ajuster le modèle en conséquence pour améliorer ses performances.  
+
+### Courbe d'accuracy
+
+Les **courbes d'accuracy** sont des graphiques qui montrent comment la performance d'un modèle varie en fonction d'un paramètre spécifique, souvent le seuil de décision dans le cas des modèles de classification. L'axe des `x` représente généralement le seuil de décision, tandis que l'axe des `y` représente la mesure de performance, généralement l'accuracy. En traçant ces courbes, on peut visualiser comment l'accuracy du modèle évolue en fonction du seuil de décision choisi. Cela permet de sélectionner le seuil optimal pour maximiser la performance du modèle en fonction des besoins spécifiques de l'application.  
+
+### Évaluation du Model
+
+Le jeu de données de test sera utilisé pour évaluer les performances du modèle. Une des mesures qui sera testée est l'exactitude, qui mesure la fraction de prédictions correctes faites par le modèle. D'autres mesures sont les suivantes :  
+
+**Précision (P) :**
+
+La fraction des vrais positifs (TP, prédictions correctes) par rapport au nombre total de résultats pertinents, c'est-à-dire la somme des TP et des faux positifs (FP). Pour les problèmes de classification multi-classes, P est calculé en moyenne parmi les classes. Voici la formule pour la précision :  
+> Précision (P) = $\frac{TP}{TP + FP}$
+
+**Rappel (R) :**
+
+La fraction des TP par rapport au nombre total de TP et de faux négatifs (FN). Pour les problèmes de classification multi-classes, R est calculé en moyenne parmi toutes les classes. Voici la formule pour le rappel :  
+> Rappel (R) = $\frac{TP}{TP + FN}$  
+
+**Score F1 :**
+
+La moyenne harmonique de la précision et du rappel. Pour les problèmes de classification multi-classes, le score F1 est calculé en moyenne parmi toutes les classes. Voici la formule pour le score F1 :  
+> Score F1 (F1) = $\frac{2 \times TP \times FP}{TP + FP}$
 
 *******
 
