@@ -20,6 +20,36 @@ Sommaire
 
 > **Warning**: Le déploiement n'a pas encore été fait. 
 
+Pour lancer la solution, il faut suivre les étapes suivantes : 
+- Clôner le répertoire du projet : [Code#0](https://codefirst.iut.uca.fr/git/lou.broda/BirdIdentifier.git)  
+
+```
+git clone https://codefirst.iut.uca.fr/git/lou.broda/BirdIdentifier.git
+```
+
+- Changer la variable `DATABASE` avec le chemin de la base de données
+
+```
+# A CHANGER EN FONCTION DE VOTRE SYSTEME D'EXPLOITATION
+
+# Linux/Macos 
+DATABASE_PATH = "../database" <-- ICI
+# Windows
+# DATABASE_PATH = "..\\database"
+
+print(f"{DATABASE_PATH}")
+```
+
+- Installer les librairies nécessaires [Librairies](#libraries)
+```
+pip install NOM_DE_LA_LIBRAIRIE
+```
+
+- Lancer le `notebook` du modèle nous intéressant
+```
+Run All
+``` 
+
 *******
 
 <div id='dataset'/>  
