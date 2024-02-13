@@ -47,9 +47,6 @@ pip install NOM_DE_LA_LIBRAIRIE
 ```
 
 - Lancer le `notebook` du modèle nous intéressant
-```
-Run All
-``` 
 
 *******
 
@@ -153,7 +150,7 @@ Cette partie vise à évaluer la qualité de compression JPEG des images, en uti
 
 **Exemple d'utilisation :**  
 
-![](./images_readme/masked_booby_ela_vizualisation.png)
+![](./images/masked_booby_ela_vizualisation.png)
 
 ---
 
@@ -200,31 +197,51 @@ Afin d'évaluer et d'optimiser les modèles d'IA, deux éléments sont cruciaux 
 
 ### Matrice de confusion
 
-La **matrice de confusion** est un outil essentiel dans l'évaluation des performances d'un modèle d'apprentissage automatique. Elle permet de visualiser la performance d'un algorithme de classification en comparant les prédictions du modèle aux vraies valeurs cibles. La matrice de confusion présente les prédictions du modèle dans un tableau à deux dimensions où les lignes représentent les classes réelles et les colonnes représentent les classes prédites. Grâce à cette visualisation, on peut identifier les types d'erreurs que le modèle commet (comme les faux positifs et les faux négatifs) et ajuster le modèle en conséquence pour améliorer ses performances.  
+La **matrice de confusion** est un outil essentiel dans l'évaluation des performances d'un modèle d'apprentissage automatique. Elle permet de visualiser la performance d'un algorithme de classification en comparant les prédictions du modèle aux vraies valeurs cibles. La matrice de confusion présente les prédictions du modèle dans un tableau à deux dimensions où les lignes représentent les classes réelles et les colonnes représentent les classes prédites. Grâce à cette visualisation, on peut identifier les types d'erreurs que le modèle commet (comme les faux positifs et les faux négatifs) et ajuster le modèle en conséquence pour améliorer ses performances.
 
-### Courbe d'accuracy
+![](./images/confusionMatrix.png)
 
-Les **courbes d'accuracy** sont des graphiques qui montrent comment la performance d'un modèle varie en fonction d'un paramètre spécifique, souvent le seuil de décision dans le cas des modèles de classification. L'axe des `x` représente généralement le seuil de décision, tandis que l'axe des `y` représente la mesure de performance, généralement l'accuracy. En traçant ces courbes, on peut visualiser comment l'accuracy du modèle évolue en fonction du seuil de décision choisi. Cela permet de sélectionner le seuil optimal pour maximiser la performance du modèle en fonction des besoins spécifiques de l'application.  
 
 ### Évaluation du Model
 
-Le jeu de données de test sera utilisé pour évaluer les performances du modèle. Une des mesures qui sera testée est l'exactitude, qui mesure la fraction de prédictions correctes faites par le modèle. D'autres mesures sont les suivantes :  
+```
+                            precision    recall  f1-score   support
 
-**Précision (P) :**
+       WHITE NECKED RAVEN       0.82      0.91      0.86        35
+              APOSTLEBIRD       0.96      1.00      0.98        27
+               ZEBRA DOVE       0.97      0.95      0.96        37
+             GOLDEN EAGLE       0.96      0.96      0.96        27
+            GAMBELS QUAIL       1.00      1.00      1.00        21
+         D-ARNAUDS BARBET       0.93      0.93      0.93        41
+           INDIAN BUSTARD       1.00      0.97      0.98        30
+          SMITHS LONGSPUR       0.96      0.90      0.93        30
+BLONDE CRESTED WOODPECKER       0.95      0.95      0.95        40
+       GANG GANG COCKATOO       0.97      0.94      0.95        33
 
-La fraction des vrais positifs (TP, prédictions correctes) par rapport au nombre total de résultats pertinents, c'est-à-dire la somme des TP et des faux positifs (FP). Pour les problèmes de classification multi-classes, P est calculé en moyenne parmi les classes. Voici la formule pour la précision :  
-> Précision (P) = $\frac{TP}{TP + FP}$
+                 accuracy                           0.95       321
+                macro avg       0.95      0.95      0.95       321
+             weighted avg       0.95      0.95      0.95       321
+```
 
-**Rappel (R) :**
 
-La fraction des TP par rapport au nombre total de TP et de faux négatifs (FN). Pour les problèmes de classification multi-classes, R est calculé en moyenne parmi toutes les classes. Voici la formule pour le rappel :  
-> Rappel (R) = $\frac{TP}{TP + FN}$  
+Le modèle de classification des images d'oiseaux a montré une performance impressionnante avec une précision globale de 95%. Cela signifie que le modèle a correctement identifié la bonne espèce d'oiseau dans 95% des images de test.
 
-**Score F1 :**
+En examinant les résultats pour chaque espèce d'oiseau, nous pouvons voir que le modèle a bien performé à travers toutes les classes. Par exemple, pour le "WHITE NECKED RAVEN", le modèle a une précision de 82% et un rappel de 91%. Cela signifie que lorsque le modèle prédit que une image est un "WHITE NECKED RAVEN", il est correct 82% du temps. De plus, il identifie correctement 91% des images réelles de "WHITE NECKED RAVEN".
 
-La moyenne harmonique de la précision et du rappel. Pour les problèmes de classification multi-classes, le score F1 est calculé en moyenne parmi toutes les classes. Voici la formule pour le score F1 :  
-> Score F1 (F1) = $\frac{2 \times TP \times FP}{TP + FP}$
+Des performances similaires sont observées pour les autres espèces d'oiseaux. Par exemple, pour le "GAMBELS QUAIL", le modèle a atteint une précision et un rappel parfaits de 100%.
 
+Ces résultats indiquent que le modèle est capable de distinguer efficacement entre différentes espèces d'oiseaux. Cependant, il est important de noter que la performance du modèle peut varier lorsqu'il est appliqué à de nouvelles images qui n'étaient pas dans l'ensemble de données de test.
+
+### Courbe d'accuracy
+
+Les **courbes d'accuracy** sont des graphiques qui montrent comment la performance d'un modèle varie en fonction d'un paramètre spécifique, souvent le seuil de décision dans le cas des modèles de classification.   
+L'axe X des courbes représente le nombre d'époques. Chaque point sur l'axe X correspond à une époque d'entraînement. L'axe Y représente la précision (pour les courbes de précision) ou la perte (pour les courbes de perte). Pour les courbes de précision, une valeur plus élevée sur l'axe Y signifie que le modèle est plus précis. Pour les courbes de perte, une valeur plus faible sur l'axe Y signifie que le modèle a moins d'erreurs. 
+
+![](./images/accuracyCurve.png)
+Les courbes de précision d'entraînement et de validation augmentent toutes deux, ce qui indique que le modèle apprend et améliore ses performances à chaque époque. Le fait qu'elles augmentent à un rythme similaire est bon signe, cela suggère que le modèle généralise bien et ne mémorise pas simplement les données d'entraînement. La forme en "demi-arche" et le ralentissement de la croissance après la 8ème époque suggèrent que le modèle commence à converger, c'est-à-dire qu'il n'améliore pas autant avec chaque époque supplémentaire.
+
+![](./images/lossCurve.png)
+Les courbes de perte ressemblent aux courbes de précision mais inversées, cela signifie que la perte diminue à chaque époque, ce qui est une bonne chose. Une diminution de la perte signifie que le modèle fait moins d'erreurs sur les données d'entraînement et de validation. Si les courbes de perte d'entraînement et de validation diminuent à un rythme similaire, cela suggère que le modèle généralise bien. Si la courbe de perte de validation commence à augmenter alors que la courbe de perte d'entraînement continue de diminuer, cela pourrait indiquer un surapprentissage.
 *******
 
 <div id='libraries'/>   
